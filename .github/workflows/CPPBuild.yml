@@ -41,7 +41,6 @@ jobs:
       run: |
         sudo apt-get install zlib1g-dev
         sudo apt-get install libkrb5-dev
-
     - name: 'Building the library into native'
       run: |
         cd Sources/Wrappers/AngouriMath.CPP.Exporting
@@ -62,7 +61,6 @@ jobs:
         mv AngouriMath.CPP.Exporting.dylib libAngouriMath.CPP.Exporting.dylib
         install_name_tool -id "@rpath/libAngouriMath.CPP.Exporting.dylib" libAngouriMath.CPP.Exporting.dylib
         
-
     - name: 'Uploading artifacts'
       uses: actions/upload-artifact@v2
       with:
@@ -75,4 +73,3 @@ jobs:
         cd Sources/Wrappers/AngouriMath.CPP.Importing
         cmake -S . -B build
         cmake --build build
-
